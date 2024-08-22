@@ -1,18 +1,22 @@
 import java.io.*;
-import java.util.StringTokenizer;
 
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        StringTokenizer st = new StringTokenizer(br.readLine());
-        int number1, number2, total;
+        int year;
+        int leap;
 
-        number1 = Integer.parseInt(st.nextToken());
-        number2 = Integer.parseInt(st.nextToken());
-        total = number1 + number2;
+        year = Integer.parseInt(br.readLine());
 
-        bw.write(String.valueOf(total));
+        if (year % 4 == 0 && year % 100 != 0)
+            leap = 1;
+        else if (year % 400 == 0)
+            leap = 1;
+        else
+            leap = 0;
+
+        bw.write(String.valueOf(leap));
         bw.flush();
         bw.close();
     }
